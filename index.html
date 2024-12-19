@@ -9,9 +9,21 @@
 <body>
     
     <div id="app">
-        <button @click="kurang()">-</button>
-        {{ count }}
-        <button @click="tambah()">+</button>
+        <div>
+            {{ count }}
+        </div>
+        <div>
+            {{ massage }}
+        </div>
+        <div v-text="massage"></div>
+
+        <div v-text="massage2">
+            ini adalah random text
+        </div>
+
+        <div v-html="massage3">
+            ini random text
+        </div>
     </div>
 
     <script type="module">
@@ -20,7 +32,10 @@
         createApp({
             data() {
                 return {
-                    count: 0
+                    count: 0,
+                    massage: 'Hello World',
+                    massage2: 'Ini akan me-replace text',
+                    massage3: '<strong>Ini tulisan bold</strong>'
                 }
             },
             methods: {

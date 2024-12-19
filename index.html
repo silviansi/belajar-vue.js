@@ -9,21 +9,27 @@
 <body>
     
     <div id="app">
-        <div>
-            {{ count }}
-        </div>
-        <div>
+        <span v-if="tampil">
             {{ massage }}
-        </div>
-        <div v-text="massage"></div>
+        </span>
+        <span v-else>
+            message tidak ditampilkan
+        </span>
 
-        <div v-text="massage2">
-            ini adalah random text
+        <div v-if="nilai > 8">
+            predikat A
+        </div>
+        <div v-else-if="nilai <= 8 && nilai >6">
+            predikat B
+        </div>
+        <div v-else>
+            predikat C
         </div>
 
-        <div v-html="massage3">
-            ini random text
+        <div v-show="stateLampu">
+            Lampu Menyala
         </div>
+        <button @click="toggleLampu">Pencet Saklar</button>
     </div>
 
     <script type="module">
@@ -32,18 +38,15 @@
         createApp({
             data() {
                 return {
-                    count: 0,
                     massage: 'Hello World',
-                    massage2: 'Ini akan me-replace text',
-                    massage3: '<strong>Ini tulisan bold</strong>'
+                    tampil: false,
+                    nilai: 9,
+                    stateLampu: false
                 }
             },
             methods: {
-                tambah() {
-                    this.count++
-                },
-                kurang() {
-                    this.count--
+                toggleLampu() {
+                    this.stateLampu = !this.stateLampu
                 }
             }
         }).mount('#app')

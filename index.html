@@ -6,6 +6,13 @@
     <title>Belajar Vue.js</title>
     <link rel="icon" href="favicon.ico" type="image/x-icon">
 </head>
+
+<style>
+    .textbiru {
+        color: blue;
+    }
+</style>
+
 <body>
     
     <div id="app">
@@ -60,6 +67,15 @@
             <input type="text">
             <button type="submit" value="send">Submit</button>
         </form>
+
+        <a :href="url">google</a>
+        <br>
+        <h2>User</h2>
+        <div :class="selectedClass">
+            nama : {{ user.name }}
+        </div>
+        <img :src="user.image" :style="{width: responsiveWidth}" :alt="'image of ' + user.name"
+        :title="'image of ' + user.name">
     </div>
 
     <script type="module">
@@ -80,7 +96,14 @@
                         {name: 'kane', position: 'forward'},
                         {name: 'salah', position: 'forward'}
                     ],
-                    count: 0
+                    count: 0,
+                    url: 'https://www.google.com',
+                    user: {
+                        name: 'Silvia',
+                        image: 'https://media.istockphoto.com/id/1131841061/photo/woman-has-confused-thinking-question-mark-icon-on-paper-bag-copy-space.webp?a=1&b=1&s=612x612&w=0&k=20&c=6sgqtqLCj3RXU4F0hLDP2sXcjZ6V6SNKRDdSynHUjd0='
+                    },
+                    responsiveWidth: '300px',
+                    selectedClass: 'textbiru'
                 }
             },
             methods: {

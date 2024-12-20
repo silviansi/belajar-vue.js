@@ -30,6 +30,19 @@
             Lampu Menyala
         </div>
         <button @click="toggleLampu">Pencet Saklar</button>
+
+        <div v-for="angka in 10">
+            {{ angka }}
+        </div>
+        <ul v-for="angka in 10">
+            <li>{{ angka }}</li>
+        </ul>
+        <ul v-for="(i, index) in fruits">
+            <li>{{i}} {{index}}<button @click="hapus(index)">x</button></li>
+        </ul>
+        <ul v-for="i in footballPlayers">
+            <li>{{i.name}} - {{i.position}}</li>
+        </ul>
     </div>
 
     <script type="module">
@@ -41,15 +54,25 @@
                     massage: 'Hello World',
                     tampil: false,
                     nilai: 9,
-                    stateLampu: false
+                    stateLampu: false,
+                    fruits: ['apple', 'banana', 'cherry', 'melon', 'orange'],
+                    footballPlayers: [
+                        {name: 'messi', position: 'forward'},
+                        {name: 'ronaldo', position: 'forward'},
+                        {name: 'neymar', position: 'midfielder'},
+                        {name: 'kane', position: 'forward'},
+                        {name: 'salah', position: 'forward'},]
                 }
             },
             methods: {
                 toggleLampu() {
                     this.stateLampu = !this.stateLampu
+                },
+                hapus(index) {
+                    this.fruits.splice(index, 1)
                 }
             }
         }).mount('#app')
     </script>
 </body>
-</html>
+</html

@@ -43,6 +43,23 @@
         <ul v-for="i in footballPlayers">
             <li>{{i.name}} - {{i.position}}</li>
         </ul>
+
+        <button @click="count--">-</button>
+        <span>{{ count }}</span>
+        <button @click="count++">+</button>
+        <br>
+        <button @click="mengurangi">-</button>
+        <span>{{ count }}</span>
+        <button @click="menambah">+</button>
+        <br>
+        <button @click="sayHello('Silvia')">Hello World</button>
+        <br>
+        <input type="text" @keydown.enter="sayHello('Silvia')">
+        <br>
+        <form method="post" action="item.html" @submit.prevent>
+            <input type="text">
+            <button type="submit" value="send">Submit</button>
+        </form>
     </div>
 
     <script type="module">
@@ -61,7 +78,9 @@
                         {name: 'ronaldo', position: 'forward'},
                         {name: 'neymar', position: 'midfielder'},
                         {name: 'kane', position: 'forward'},
-                        {name: 'salah', position: 'forward'},]
+                        {name: 'salah', position: 'forward'}
+                    ],
+                    count: 0
                 }
             },
             methods: {
@@ -70,6 +89,15 @@
                 },
                 hapus(index) {
                     this.fruits.splice(index, 1)
+                },
+                mengurangi() {
+                    this.count--
+                },
+                menambah() {
+                    this.count++
+                },
+                sayHello(name) {
+                    alert('Hello ' + name)
                 }
             }
         }).mount('#app')

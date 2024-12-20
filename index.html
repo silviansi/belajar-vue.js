@@ -76,6 +76,53 @@
         </div>
         <img :src="user.image" :style="{width: responsiveWidth}" :alt="'image of ' + user.name"
         :title="'image of ' + user.name">
+
+        <div>
+            <label for="">username : </label><br>
+            <input type="text" placeholder="username" v-model="username">
+        </div>
+        <div>
+            <label for="">address</label><br>
+            <textarea name="" id="" v-model="address"></textarea>
+        </div>
+        <div>
+            <label for="">gender</label><br>
+            <input type="radio" value="Pria" v-model="gender">Pria
+            <input type="radio" value="Wanita" v-model="gender">Wanita
+        </div>
+        <div>
+            <label for="">Hobi</label><br>
+            <label for="">Sepak Bola</label>
+            <input type="checkbox" value="sepak bola" v-model="hobi">Sepak Bola
+            <br>
+            <label for="">Basket</label>
+            <input type="checkbox" value="basket" v-model="hobi">Basket
+            <br>
+            <label for="">Renang</label>
+            <input type="checkbox" value="renang" v-model="hobi">Renang
+        </div>
+        <div>
+            <label for="">Role</label>
+            <select name="role" id="role" v-model="role">
+                <option disabled value="Pilih Satu"></option>
+                <option value="staff">Staff</option>
+                <option value="admin">Admin</option>
+                <option value="superadmin">Super Admin</option>
+            </select>
+        </div>
+        <div>
+            <p>username: {{ username }}</p>
+            <p>address: {{ address }}</p>
+            <p>gender: {{ gender }}</p>
+            <p>hobi: 
+                <span v-if="hobi.length > 0">
+                    <ul v-for="i in hobi">
+                        <li>{{ i }}</li>
+                    </ul>
+                </span>
+            </p>
+            <p>role: {{ role }}</p>
+        </div>
     </div>
 
     <script type="module">
@@ -103,7 +150,12 @@
                         image: 'https://media.istockphoto.com/id/1131841061/photo/woman-has-confused-thinking-question-mark-icon-on-paper-bag-copy-space.webp?a=1&b=1&s=612x612&w=0&k=20&c=6sgqtqLCj3RXU4F0hLDP2sXcjZ6V6SNKRDdSynHUjd0='
                     },
                     responsiveWidth: '300px',
-                    selectedClass: 'textbiru'
+                    selectedClass: 'textbiru',
+                    username: '',
+                    address: '',
+                    gender: '',
+                    hobi: [],
+                    role: ''
                 }
             },
             methods: {

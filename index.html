@@ -123,6 +123,14 @@
             </p>
             <p>role: {{ role }}</p>
         </div>
+
+        <form action="">
+            <input type="text" placeholder="first name" v-model="firstName"><br>
+            <input type="text" placeholder="last name" v-model="lastName"><br>
+        </form>
+        <div>
+            Full Name: {{ fullName }}
+        </div>
     </div>
 
     <script type="module">
@@ -155,7 +163,14 @@
                     address: '',
                     gender: '',
                     hobi: [],
-                    role: ''
+                    role: '',
+                    firstName: '',
+                    lastName: '',
+                }
+            },
+            computed: {
+                fullName() {
+                    return this.firstName+' '+this.lastName
                 }
             },
             methods: {

@@ -1,29 +1,36 @@
 <template>
-  <Student @response="showData" studentName="Silvia">Ini adalah nilai slot dari parent</Student> <br>
-  <Student @response="showData" studentName="Nanda" /> <br>
-  <Student @response="showData" studentName="Syafa" />
-
-  <p>
-    Student Name: {{ studentName }}
-  </p>
+  <div class="menu">
+    <Navbar />
+  </div>
+  
+  <div class="main">
+    <RouterView />
+  </div>
 </template>
 
 <script>
-  import Student from './components/Student.vue'
+  import Navbar from './components/Navbar.vue'
 
   export default {
-    components: {
-      Student
-    },
-    data() {
-      return {
-        studentName: ''
+      components: {
+          Navbar
       }
-    },
-    methods: {
-      showData(data) {
-        this.studentName = data
-      }
-    }
   }
 </script>
+
+<style>
+  body {
+    margin: 0;
+  }
+</style>
+
+<style scoped>
+  .menu {
+    background-color: #eee;
+    line-height: 2.5;
+    padding: 10px
+  }
+  .main {
+    padding: 10px;
+  }
+</style>
